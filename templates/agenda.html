@@ -1,11 +1,48 @@
 {% extends "model-page.html" %}
 
 {% block content %}
-  <h2>Agendamentos</h2>
+<style>
+    /* Estilos para o título */
+    h2 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
 
-    <ul style="font-size: 18px">
-        {% for evento in eventos %}
-            <li>{{evento.titulo}} - {{evento.get_data_evento}}</li>
-        {% endfor %}
-    </ul>
+    /* Estilos para o botão */
+    .btn {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: #FFF;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Estilos para a lista de eventos */
+    .eventos-list {
+        list-style-type: none;
+        font-size: 18px;
+        padding-left: 0;
+    }
+
+    .evento-item {
+        margin-bottom: 5px;
+    }
+</style>
+
+<h2>Agendamentos</h2>
+<a href="evento/">
+    <button class="btn">Novo Evento</button>
+</a>
+
+<ul class="eventos-list">
+    {% for evento in eventos %}
+        <li class="evento-item">{{evento.titulo}} - {{evento.get_data_evento}}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

@@ -1,0 +1,85 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f3f3f3;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="datetime-local"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Evento</h2>
+  <form action="submit" method="POST">{% csrf_token %}
+    <label>Titulo</label>
+    <input type="text" name="titulo" placeholder="Digite o título do evento">
+
+    <label>Data do Evento</label>
+    <input type="datetime-local" name="data_evento">
+
+    <label>Descrição</label>
+    <textarea name="descricao" placeholder="Digite a descrição do evento"></textarea>
+    <br>
+    <button type="submit">Salvar</button>
+    <a href="/">
+      <button type="button">Cancelar</button>
+    </a>
+  </form>
+    </div>
+</body>
+
+{% endblock %}
