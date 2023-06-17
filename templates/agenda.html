@@ -41,7 +41,9 @@
 
 <ul class="eventos-list">
     {% for evento in eventos %}
-        <li class="evento-item">{{evento.titulo}} - {{evento.get_data_evento}}</li>
+        <li class="evento-item">{{evento.titulo}} - {{evento.get_data_evento}}
+            ( <a href="evento/?id={{ evento.id}}/">Editar</a> /
+            <a href="evento/delete/{{ evento.id }}/">Excluir</a> )</li>
     {% endfor %}
 </ul>
 
